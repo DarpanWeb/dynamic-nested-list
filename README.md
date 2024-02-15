@@ -16,6 +16,9 @@ Follow these steps to install the project locally:
 git clone https://github.com/DarpanWeb/dynamic-nested-list.git
 ```
 
+### Install Php Dependencies
+composer install
+
 ### Environment Configuration
 
 - Duplicate the .env.example file and rename it to .env.
