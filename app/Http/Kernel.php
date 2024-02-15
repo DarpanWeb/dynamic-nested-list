@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Console\Commands\UpdateNestedList;
 
 class Kernel extends HttpKernel
 {
@@ -65,4 +66,23 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];
+
+    /**
+     * The application's command classes.
+     *
+     * @var array<string, class-string>
+     */
+    protected $commands = [
+        UpdateNestedList::class,
+    ];
+
+    /**
+     * The application's scheduler.
+     *
+     * @var array<string, class-string>
+     */
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('hour:update-nested-list')->hourly();
+    }
 }
