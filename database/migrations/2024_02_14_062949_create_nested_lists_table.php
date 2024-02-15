@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('label');
             $table->unsignedBigInteger('parent_id')->nullable();
+            $table->boolean('is_edited')->default(config('constants.STATUSES.DISABLED'));
             $table->timestamps();
         });
     }
