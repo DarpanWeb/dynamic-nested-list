@@ -1,7 +1,7 @@
 <tr>
     <td>
         <div class="form-group">
-            <label id="item_{{ $item['id'] }}" data-value="{{ $item['label'] }}">{{ $item['label'] }}</label>
+            <label id="item_{{ $item['id'] }}" data-value="{{ $item['label'] }}">{{ ucfirst($item['label']) }}</label>
         </div>
     </td>
     <td>

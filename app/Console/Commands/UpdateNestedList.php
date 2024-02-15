@@ -91,7 +91,7 @@ class UpdateNestedList extends Command
                 $currentItemId = $currentItem->id;
             } else {
                 $currentItemId = $this->nestedList->insertListItem([
-                    'label' => $item['label'],
+                    'label' => strtolower($item['label']),
                     'parent_id' => $parentId,
                     'created_at' => now(),
                 ]);

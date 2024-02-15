@@ -25,7 +25,9 @@
                         @endforeach
                     </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary mt-3">Update Items</button>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Update Items</button>
+                </div>
             </form>
         </div>
     </div>

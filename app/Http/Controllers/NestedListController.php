@@ -36,7 +36,7 @@ class NestedListController extends Controller
         
         $editItems = $this->request->items['edit'] ?? [];
         $addChildren = $this->request->items['children'] ?? [];
-        
+
         // Get keys of all locally changed items to mark them edited in local database
         $editKeys = array_unique(
             array_merge(
@@ -46,15 +46,17 @@ class NestedListController extends Controller
         );
 
         // Create array to insert newly added children in the list
-        foreach($addChildren as $parentId => $label) {
-            $upsertArray[] = [
-                'id' => null,
-                'parent_id' => $parentId,
-                'label' => $label,
-                'is_edited' => config('constants.STATUSES.ENABLED'),
-                'created_at' => now(),
-                'updated_at' => null,
-            ];
+        foreach($addChildren as $parentId => $children) {
+            foreach ($children as $label) {
+                $upsertArray[] = [
+                    'id' => null,
+                    'parent_id' => $parentId,
+                    'label' => $label,
+                    'is_edited' => config('constants.STATUSES.ENABLED'),
+                    'created_at' => now(),
+                    'updated_at' => null,
+                ];
+            }
         }
 
         // As locally changed items cannot be deleted, all nodes till the root parent node will be marked as edited
@@ -73,8 +75,8 @@ class NestedListController extends Controller
                 ];
                 
                 // check if there's a label change for current ID
-                if (isset($editItems[$id])) {
-                    $updateItem['label'] = $editItems[$id];
+                if (isset($editItems[$item->id])) {
+                    $updateItem['label'] = $editItems[$item->id];
                 }
 
                 $upsertArray[] = $updateItem;

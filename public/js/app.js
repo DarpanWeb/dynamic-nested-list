@@ -19,7 +19,7 @@ $(document).ready(function() {
                             '<tbody>' +
                                 '<tr>' +
                                     '<td>' +
-                                        '<input type="text" name="items[children][' + itemId + ']" class="form-control">' +
+                                        '<input type="text" name="items[children][' + itemId + '][]" class="form-control">' +
                                     '</td>' +
                                     '<td>' +
                                         '<button type="button" class="btn btn-danger remove-child-btn"><i class="fas fa-trash"></i></button>' +
