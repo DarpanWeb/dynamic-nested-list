@@ -1,0 +1,47 @@
+/* Custom CSS for nested list representation */
+.table {
+    border: 1px solid #dee2e6;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: #dddddd -1px 2px 11px 3px;
+}
+
+.table th, .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table th {
+    border-bottom: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+
+.list-group-item {
+    border: none;
+}
+
+.nested-list {
+    padding-left: 20px;
+    border-left: 1px solid #dee2e6;
+}
+
+.nested-list > tr > td {
+    padding-left: 20px;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}

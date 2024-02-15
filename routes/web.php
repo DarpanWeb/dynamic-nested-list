@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'NestedListController@getList')->name('home');
+Route::post('/edit-list', 'NestedListController@editList')->name('updateList');
