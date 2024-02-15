@@ -83,6 +83,6 @@ class Kernel extends HttpKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('app:update-nested-list')->hourly();
+        $schedule->command('hour:update-nested-list')->hourly();
     }
 }

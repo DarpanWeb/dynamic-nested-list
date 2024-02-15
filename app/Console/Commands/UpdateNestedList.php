@@ -21,14 +21,14 @@ class UpdateNestedList extends Command
      *
      * @var string
      */
-    protected $signature = 'app:update-nested-list';
+    protected $signature = 'hour:update-nested-list';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Updates the nested list in local database depending on the changes of the remote file';
+    protected $description = 'Hourly updates the nested list in local database depending on the changes of the remote file';
 
     /**
      * Execute the console command.
