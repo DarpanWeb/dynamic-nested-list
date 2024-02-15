@@ -27,4 +27,30 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Render an exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Throwable  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function render($request, Throwable $e)
+    {
+        // Check if the exception is a ValidationException
+        if ($e instanceof ValidationException) {
+            // Format the validation errors as individual messages
+            $errors = [];
+            foreach ($e->errors() as $field => $messages) {
+                foreach ($messages as $message) {
+                    $errors[] = $message;
+                }
+            }
+
+            return response()->json(['status' => false, 'errors' => $errors], Response::HTTP_BAD_REQUEST);
+        }
+
+        // For other types of exceptions, let Laravel handle the rendering
+        return parent::render($request, $e);
+    }
 }
